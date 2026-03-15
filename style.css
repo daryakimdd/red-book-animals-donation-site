@@ -1,0 +1,49 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrap {
+    min-height: 100vh;
+    background-color: cadetblue;
+    display:flex; 
+    justify-content: center;
+    overflow: hidden;
+}
+ 
+.carusel {
+    position: relative;
+    top: 6.5rem;
+    height: 12rem;
+    width: 15rem;
+
+    transform-style: preserve-3d;
+    transform: perspective(2000px) rotate3d(0,1,0, 360deg);
+    transition: 2s;  /*для плавного вращения
+
+    выглядит не оч
+    animation: circular-rotate 18s linear infinite; */
+}
+
+@keyframes circular-rotate {
+    to {
+        transform: perspective(2000px) rotate3d(0,1,0, 360deg);
+    }
+}
+
+.carusel img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border-radius: 1rem;
+
+    background-color: #fff;  /*если не прогрузится*/
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+ /*подсветка (не работает)*/
+.carusel img:hover {
+    background-color: aliceblue;
+}

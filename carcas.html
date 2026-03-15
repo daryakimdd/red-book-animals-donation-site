@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RB Funds</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="carusel">
+            <img src="images/bear.jpeg" alt="bear">
+            <img src="images/bars.jpeg" alt="bars">
+            <img src="images/penguin.jpg" alt="penguin">
+        </div>
+    </div>
+
+    <script>
+        const carusel = document.querySelector('.carusel')
+        const images = document.querySelectorAll('.carusel img')
+        const img_angle = 360 / carusel.children.length
+        let nowrot = 0; //насколько повёрнута карусель
+
+        images.forEach((image,i) => {
+            const EIAngle = (i + 1) * img_angle;  //угол для Each Image
+
+            //типа по Y расставляем по кругу, потом от центра по Z двигаем
+            image.style.transform = `rotateY(${EIAngle}deg) translateZ(${carusel.children.length * 7}rem)`;
+
+            image.onclick = ()=> {
+            
+                let rotat = (-EIAngle - nowrot) % 360; // насколько довернуть
+                
+                //куда крутиь
+                if (rotat > 180) rotat -= 360; 
+                else if (rotat < -180) rotat += 360;
+                
+                nowrot += rotat;
+                //поворот карусели
+                carusel.style.transform = `perspective(2000px) rotateY(${nowrot}deg)`;
+
+            }
+        })
+    </script>
+</body>
+</html>
