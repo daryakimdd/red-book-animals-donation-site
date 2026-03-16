@@ -15,32 +15,19 @@
         </div>
     </div>
 
-    <script>
-        const carusel = document.querySelector('.carusel')
-        const images = document.querySelectorAll('.carusel img')
-        const img_angle = 360 / carusel.children.length
-        let nowrot = 0; //насколько повёрнута карусель
+    <script src="logic.js"></script>
 
-        images.forEach((image,i) => {
-            const EIAngle = (i + 1) * img_angle;  //угол для Each Image
-
-            //типа по Y расставляем по кругу, потом от центра по Z двигаем
-            image.style.transform = `rotateY(${EIAngle}deg) translateZ(${carusel.children.length * 7}rem)`;
-
-            image.onclick = ()=> {
-            
-                let rotat = (-EIAngle - nowrot) % 360; // насколько довернуть
-                
-                //куда крутиь
-                if (rotat > 180) rotat -= 360; 
-                else if (rotat < -180) rotat += 360;
-                
-                nowrot += rotat;
-                //поворот карусели
-                carusel.style.transform = `perspective(2000px) rotateY(${nowrot}deg)`;
-
-            }
-        })
-    </script>
 </body>
 </html>
+
+
+<!--
+1. добавить нормальные карточки животных в карусель
+2. Добавить кнопки к карточкам
+3. сделать норм оформление главной страницы
+4. добавить контактную информацию на главную страницу
+5. добавить информацию о нас на главную страницу
+6. добавить информацию о животных на главную страицу
+х. сделать мини-игры ко всем животным
+
+-->
