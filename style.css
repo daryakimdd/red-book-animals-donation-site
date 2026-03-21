@@ -27,9 +27,9 @@ a {
     background-color: #f2f5f1;
 }
 
-
+/* fixed over-menu to overlay-menu */
 /* затемнение*/
-.over-menu {
+.overlay-menu {
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.7);
@@ -40,7 +40,7 @@ a {
     transition: opacity 0.3s ease;
 }
 
-.over-menu.active {
+.overlay-menu.active {
     opacity: 1;
     visibility: visible; 
 }
