@@ -10,7 +10,6 @@
 </head>
 <body>
     <div class="homepage">
-        
         <div class="header" style="background-color: #2d3a30;">
 
             <div class="header-header-desctop">
@@ -18,7 +17,7 @@
                 <div class="header-header">
                     
                     <section class="header-header-left">
-                        <button class="options-games">
+                        <button class="options-games" id="open-menu-btn">
                             <img src="icons-svg/menu-cutted-icon.svg" width="702" height="600" alt="menu" loading="lazy">
                         </button>
                         <!--ссылка держится на костылях. НЕ ТРОГАТЬ -->
@@ -27,6 +26,7 @@
                             <span class="company-name">RB FUNDS</span>
                         </a>
                     </section>
+
 <!--
                     <section class="header-header-middle">
                         <a title="More about us" class="company-name-link" href="">
@@ -83,12 +83,35 @@
         <div class="lower" style="background-color: #2f2f2f;">
             <!--информация про нас-->
         </div>
-
-
-    <script src="logic.js"></script>
-
     </div>
 
+    <!--затемнение-->
+    <div class="overlay-menu" id="overlay-menu"></div>
+
+    <!--выдвигающееся меню -->
+    <div class="pull-out-menu" id="pull-out-menu">
+
+        <div class="side-panel-header">
+            <button class="options-games" id="close-menu-btn" style="margin-right: 5px;">
+                <img src="icons-svg/menu-cutted-icon.svg" width="702" height="600" alt="menu">
+            </button>
+            
+            <a title="More about us" class="company-name-link" href="">
+                <span class="final-bear-in-circle-logo"><img src="icons-svg/final-bear-in-circle-logo.svg" width="90" height="90" alt="menu"></span>
+                <span class="company-name">RB FUNDS</span>
+            </a>
+
+        </div>
+        <nav class="nav-pull-out-menu">
+            <a href="#">Govno</a>
+            <a href="#">Kapusta</a>
+            <a href="#">Каk kakat</a>
+            <a href="#">I luv u</a>
+        </nav>
+    </div>
+    
+    
+    <script src="logic.js"></script>
 </body>
 </html>
 
