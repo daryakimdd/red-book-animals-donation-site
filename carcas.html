@@ -1,21 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preload" href="fonts/montserrat-v31-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RB Funds</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="wrap">
-        <div class="carusel">
-            <img src="images/bear.jpeg" alt="bear">
-            <img src="images/bars.jpeg" alt="bars">
-            <img src="images/penguin.jpg" alt="penguin">
+    <div class="homepage">
+        
+        <div class="header" style="background-color: #2d3a30;">
+
+            <div class="header-header-desctop">
+
+                <div class="header-header">
+                    
+                    <section class="header-header-left">
+                        <button class="options-games">
+                            <img src="icons-svg/menu-cutted-icon.svg" width="702" height="600" alt="menu" loading="lazy">
+                        </button>
+                        <!--ссылка держится на костылях. НЕ ТРОГАТЬ -->
+                        <a title="More about us" class="company-name-link" href="">
+                            <span class="final-bear-in-circle-logo"><img src="icons-svg/final-bear-in-circle-logo.svg" width="90" height="90" alt="menu" loading="lazy"></span>
+                            <span class="company-name">RB FUNDS</span>
+                        </a>
+                    </section>
+<!--
+                    <section class="header-header-middle">
+                        <a title="More about us" class="company-name-link" href="">
+                            <span class="final-bear-in-circle-logo"><img src="icons-svg/final-bear-in-circle-logo.svg" width="90" height="90" alt="menu" loading="lazy"></span>
+                            <span class="company-name">RB FUNDS</span>
+                        </a>
+                    </section>
+-->
+                    
+                    <section class="header-header-right">
+                        <div class="language"></div>
+                        <div class="profile"></div>
+                    </section>
+
+                </div>
+            </div>
+
+            <div class="header-header-mobile">
+                <!--Для мобильных телефонов-->
+            </div>
+
         </div>
-    </div>
+
+
+        <div class="middle">
+
+            <div class="middle-l-p">
+                <div class="tab-links-to-articles&funds">
+                <!--выдвижная вкладка со ссылками на статьи про проблемы животных и
+                про фонды, которые с ними борются-->
+                </div>
+
+            </div>
+
+            <div class="middle-m-p">
+                <div class="cards-games">
+                    <div class="carusel">
+                        <img src="images/bear.jpeg" alt="bear">
+                        <img src="images/bars.jpeg" alt="bars">
+                        <img src="images/penguin.jpg" alt="penguin">
+                    </div>
+                </div>
+            </div>
+
+            <div class="middle-l-p">
+                <div class="linkButton-donation-to-funds">
+                <!--ссылка для перехода на страницу с конкретными фондами и донатом в них-->
+                </div>
+            </div>
+
+        </div>
+        
+
+        <div class="lower" style="background-color: #2f2f2f;">
+            <!--информация про нас-->
+        </div>
+
 
     <script src="logic.js"></script>
+
+    </div>
 
 </body>
 </html>

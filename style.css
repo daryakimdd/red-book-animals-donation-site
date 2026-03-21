@@ -1,12 +1,124 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/montserrat-v31-latin-700.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --header-ud-padding: 2rem;
+    --header-lr-padding: 2.2rem;
+}
+
 * { 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+    line-height: 1;
+}
+
+.homepage {
+    background-color: #f2f5f1;
+}
+
+.header-header {
+    padding: var(--header-ud-padding) var(--header-lr-padding);
+    display:flex;
+    align-items: center;
+    height: 80px;
+
+}
+
+.header-header-left {
+    display: flex;
+    align-items: center;    
+    
+    gap: 15px;  
+}
+
+/*
+.header-header-middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 20px;
+}
+*/
+.header-header-right {
+    margin-left: auto;
+}
+
+.final-bear-in-circle-logo {
+    position: absolute;
+    display: flex;
+    left: 0;
+    top: 50%; 
+    transform: translateY(calc(-50% + 13px)); 
+    z-index: 20;
+    pointer-events: none;
+
+}
+
+.company-name-link {
+    position: relative;
+    display: inline-flex;
+    height: 70px; 
+    line-height: 60px;
+    padding-right: 10px; 
+    align-items: center;
+    color: #f2f5f1;
+    text-decoration: none;
+    padding-left: 90px;
+    padding-bottom: -20px;
+    line-height: 1;
+
+}
+
+.company-name {
+    line-height: 1;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: -0.03em;
+
+}
+
+.options-games {
+    width: 20px;
+    height: 16px; 
+    
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.options-games img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.middle {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+.middle-m-p {
+    display: flex;
+    margin-top: -40%;
+    margin-left: 45%;
+}
+
 .wrap {
     min-height: 100vh;
-    background-color: cadetblue;
     display:flex; 
     justify-content: center;
     overflow: hidden;
@@ -46,3 +158,4 @@
 .carusel img:hover {
     background-color: aliceblue;
 }
+
