@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link rel="preload" href="fonts/montserrat-v31-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/inter-v20-cyrillic_latin-600.woff2" as="font" type="font/woff2" crossorigin>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,11 +19,11 @@
                     
                     <section class="header-header-left">
                         <button class="options-games" id="open-menu-btn">
-                            <img src="icons-svg/menu-cutted-icon.svg" width="702" height="600" alt="menu" loading="lazy">
+                            <img src="icons-svg/menu-cutted-icon.svg" width="702" height="600" alt="menu">
                         </button>
                         <!--ссылка держится на костылях. НЕ ТРОГАТЬ -->
                         <a title="More about us" class="company-name-link" href="">
-                            <span class="final-bear-in-circle-logo"><img src="icons-svg/final-bear-in-circle-logo.svg" width="90" height="90" alt="menu" loading="lazy"></span>
+                            <span class="final-bear-in-circle-logo"><img src="icons-svg/final-bear-in-circle-logo.svg" width="90" height="90" alt="logo"></span>
                             <span class="company-name">RB FUNDS</span>
                         </a>
                     </section>
@@ -38,7 +39,9 @@
                     
                     <section class="header-header-right">
                         <div class="language"></div>
-                        <div class="profile"></div>
+                        <button class="profile-button" id="profile-button">
+                            <img src="icons-svg/penguin-profile-icon.svg">
+                        </button>
                     </section>
 
                 </div>
@@ -83,6 +86,7 @@
         <div class="lower" style="background-color: #2f2f2f;">
             <!--информация про нас-->
         </div>
+
     </div>
 
     <!--затемнение-->
@@ -103,26 +107,26 @@
 
         </div>
         <nav class="nav-pull-out-menu">
-            <a href="#">Govno</a>
-            <a href="#">Kapusta</a>
-            <a href="#">Каk kakat</a>
-            <a href="#">I luv u</a>
+            <a href="#">О нас</a>
+            <a href="#">О вас</a>
+            <a href="#">О внас</a>
+            <a href="#">Ананас</a>
         </nav>
     </div>
     
+    <!-- меню регистрации/авторизации -->
+    <div class="log-in-menu" id="log-in-menu">
+        <div class="log-in-panel">
+            <button class="log-in-close" id="log-in-close">X</button>
+            <b class="log-in-panel-text">ВХОД</b>
+            <form class="log-in-form" id="auth-form">
+                <input type="text" class="user-log-in-login" id="user-log-in-login" placeholder="Введите логин / e-mail / номер телефона" required>
+                <input type="password" class="user-log-in-password" id="user-log-in-password" placeholder="Введите пароль" required>
+                <button type="submit" class="log-in-button" id="log-in-button">Войти</button>
+            </form>
+        </div>
+    </div>
     
     <script src="logic.js"></script>
 </body>
 </html>
-
-
-<!--
-1. добавить нормальные карточки животных в карусель
-2. Добавить кнопки к карточкам
-3. сделать норм оформление главной страницы
-4. добавить контактную информацию на главную страницу
-5. добавить информацию о нас на главную страницу
-6. добавить информацию о животных на главную страицу
-х. сделать мини-игры ко всем животным
-
--->

@@ -1,74 +1,102 @@
-//js вынес сюда, чтобы было почище
+    // КАРУСЕЛЬ (переработанная)
 
 const carusel = document.querySelector('.carusel');
 const images = document.querySelectorAll('.carusel img');
 
-const img_angle = 360 / carusel.children.length;
-let nowrot = 0; //насколько повёрнута карусель
+const angleChng = 360 / carusel.children.length;
+let nowrot = 0;
 
 // подсветка передней карточки
-function change_Brightness() {
-    images.forEach((image, i) => {
-        const EIAngle = (i + 1) * img_angle;
+function updateCards() {
+    images.forEach((img, index) => {
+        const angle = (index + 1) * angleChng;
+        const pos = Math.abs((angle + nowrot) % 360);
 
-        // если картинка спереди, то она кратна 360
-        let front_img = Math.abs((EIAngle + nowrot) % 360);
-
-        if (front_img === 0) {
-            image.style.filter = 'brightness(110%)';
-            image.style.transform =
-                `rotateY(${EIAngle}deg) translateZ(${carusel.children.length * 12}rem) scale(1.3)`;
+        if (pos === 0) {
+            img.style.filter = 'brightness(110%)';
+            img.style.transform =
+                `rotateY(${angle}deg) translateZ(${carusel.children.length * 12}rem) scale(1.3)`;
         } else {
-            image.style.filter = 'brightness(50%)';
-            image.style.transform =
-                `rotateY(${EIAngle}deg) translateZ(${carusel.children.length * 12}rem) scale(0.8)`;
+            img.style.filter = 'brightness(50%)';
+            img.style.transform =
+                `rotateY(${angle}deg) translateZ(${carusel.children.length * 12}rem) scale(0.8)`;
         }
     });
 }
 
-change_Brightness();
+updateCards();
 
+// расстановка и обработка кликов
+images.forEach((img, index) => {
+    const angle = (index + 1) * angleChng;
 
-//расставляем по кругу
-images.forEach((image, i) => {
-    const EIAngle = (i + 1) * img_angle;
+    img.style.transform =
+        `rotateY(${angle}deg) translateZ(${carusel.children.length * 12}rem)`;
 
-    //по Y расставляем по кругу, потом от центра двгаем по Z
-    image.style.transform =
-        `rotateY(${EIAngle}deg) translateZ(${carusel.children.length * 12}rem)`;
+    img.onclick = () => {
+        let vRotDirection = (-angle - nowrot) % 360;
 
-    image.onclick = () => {
-        // насколько довернуть
-        let rotat = (-EIAngle - nowrot) % 360;
+        if (vRotDirection > 180) vRotDirection -= 360;
+        else if (vRotDirection < -180) vRotDirection += 360;
 
-        //куда доворачивать
-        if (rotat > 180) rotat -= 360;
-        else if (rotat < -180) rotat += 360;
+        nowrot += vRotDirection;
 
-        nowrot += rotat;
-
-        //поворот карусели
         carusel.style.transform =
             `perspective(2000px) rotateY(${nowrot}deg)`;
 
-        //изменение х-к картинки
-        change_Brightness();
+        updateCards();
     };
 });
 
 
-// меню
+    // МЕНЮ СЛЕВА
 
-const openBtn = document.getElementById('open-menu-btn');
-const closeBtn = document.getElementById('close-menu-btn');
+const openMenuBtn = document.getElementById('open-menu-btn');
+const closeMenuBtn = document.getElementById('close-menu-btn');
 const poMenu = document.getElementById('pull-out-menu');
-const overlayMenu = document.getElementById('overlay-menu');
+const overlay = document.getElementById('overlay-menu');
 
-function toggleMenu() {
-    poMenu.classList.toggle('active');
-    overlayMenu.classList.toggle('active');
+function open_po_Menu() {
+    poMenu.classList.add('active');
+    overlay.classList.add('active');
 }
 
-openBtn.addEventListener('click', toggleMenu);
-closeBtn.addEventListener('click', toggleMenu);
-overlayMenu.addEventListener('click', toggleMenu);
+function close_po_Menu() {
+    poMenu.classList.remove('active');
+    overlay.classList.remove('active');
+}
+
+openMenuBtn.addEventListener('click', open_po_Menu);
+closeMenuBtn.addEventListener('click', close_po_Menu);
+
+overlay.addEventListener('click', () => {
+    if (poMenu.classList.contains('active')) {
+        close_po_Menu();
+    }
+});
+
+
+
+// МЕНЮ АВТОРИЗАЦИИ
+
+const profileBtn = document.getElementById('profile-button');
+const loginMenu = document.getElementById('log-in-menu');
+const loginCloseBtn = document.getElementById('log-in-close');
+
+function openLogin() {
+    loginMenu.classList.add('active');
+}
+function closeLogin() {
+    loginMenu.classList.remove('active');
+}
+
+function toggleLogin() {
+    if (loginMenu.classList.contains('active')) {
+        closeLogin();
+    } else {
+        openLogin();
+    }
+}
+
+profileBtn.addEventListener('click', toggleLogin);
+loginCloseBtn.addEventListener('click', closeLogin);
