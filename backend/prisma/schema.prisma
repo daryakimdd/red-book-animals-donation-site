@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+  engineType = "binary"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int            @id @default(autoincrement())
+  login    String         @unique
+  password String
+  tokens   RefreshToken[]
+}
+
+model RefreshToken {
+  id     Int    @id @default(autoincrement())
+  token  String @unique
+  userId Int
+  user   User   @relation(fields: [userId], references: [id])
+}
